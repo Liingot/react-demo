@@ -5,5 +5,9 @@ import Content from './js/components/content';
 import Footer from './js/components/footer';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<div><Header/> <Content userid="010202" userName = "Liingot"/> <Footer /></div>, document.getElementById('root'));
+const s= 12323;
+
+// ReactDOM.render(<div><Header/> <Content userid={s} userName = "Liingot"/> <Footer /></div>, document.getElementById('root'));
+
+ReactDOM.render(<div><Header/> <Content userid={s} /> <Footer /></div>, document.getElementById('root'));
 serviceWorker.unregister();
