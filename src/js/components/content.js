@@ -15,7 +15,8 @@ export default class Content extends Component{
     constructor(){
         super();
       this.state = {
-          model : ''
+          model : '',
+          trck : true
       }
     }
  
@@ -25,8 +26,25 @@ export default class Content extends Component{
        });
    }
 
+   Onclick(){
+       this.setState({
+           trck : !this.state.trck
+       });
+
+       //第一种方法
+    //    var btn = document.getElementsByClassName('btn')[0];
+    //    ReactDOM.findDOMNode(btn).style.color = this.state.trck ? "red" : "yellow";
+     
+
+    //第二种方法
+    this.refs.btn.style.color = this.state.trck ? "red" : "yellow";
+   }
 
    render(){
+
+     const btnText = () =>{
+        return this.state.trck ? "点击1" : "点击2"
+     }
      return(
            <div>
              
@@ -38,6 +56,9 @@ export default class Content extends Component{
 
                  { console.log(`我是父页面传来的userid:${this.props.userid}`) }
                  { console.log(`我是父页面传来的userName:${this.props.userName}`) }
+
+                <button onClick = {this.Onclick.bind(this)} className='btn' ref='btn'> {btnText()} </button>
+
             </div>
        )
    }
